@@ -1,12 +1,19 @@
 <div id="<%= dom_id tweet %>">
-  <p>
-    <strong>Description:</strong>
-    <%= tweet.description %>
-  </p>
-
-  <p>
-    <strong>Username:</strong>
-    <%= tweet.username %>
-  </p>
+    <div class="card text-center">
+      <div class="card-header">
+        <%= tweet.id %> - <%= tweet.username %>
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+          <%= tweet.description%>
+        </p>
+        <%= link_to "Editar", edit_tweet_path(tweet),class:"btn btn-primary" %> |
+        <%= button_to "Eliminar", tweet,class:"btn btn-danger", method: :delete %>
+        
+      </div>
+      <div class="card-footer text-body-secondary">
+        <%= tweet.updated_at%>
+      </div>
+    </div>
 
 </div>

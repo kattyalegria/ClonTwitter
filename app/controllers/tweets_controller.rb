@@ -5,10 +5,10 @@ class TweetsController < ApplicationController
   def index
     @pagy, @tweets = pagy(Tweet.all)
     if params[:query_text].present?
-      @tweets = @tweets.search_full_text[params{:query_text}]
+      @pagy, @tweets = pagy(@tweets.search_full_text(params[:query_text]))
     end
   end
-
+  
   # GET /tweets/1 or /tweets/1.json
   def show
   end
